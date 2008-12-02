@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WeatherFeed>
+<Location ID="30301" name="Atlanta" state="GA" country="US" tz="-5" tzname="EST">
+<Astro>
+<AstroPeriod Day="FRI" Date="2008-11-14" Sunrise="7:07 AM EST" Sunset="5:34 PM EST" Moonrise="6:43 PM EST" Moonset="8:53 AM EST" MoonIllum="86%" MoonAge="17" MoonPhase="Waning Gibbous Moon" MoonIcon="17"/><AstroPeriod Day="FRI" Date="2008-11-14" Sunrise="7:08 AM EST" Sunset="5:33 PM EST" Moonrise="7:51 PM EST" Moonset="10:02 AM EST" MoonIllum="78%" MoonAge="18" MoonPhase="Waning Gibbous Moon" MoonIcon="18"/></Astro>
+<WxOb StationID="KPDK" TempC="16" TempF="61" ApparentC="16" ApparentF="61" DewPointC="16" DewPointF="61" RelativeHumidity="100" WindSpeedKnots="4" WindSpeedMPH="5" WindDirection="070" WindDirectionEng="ENE" WindGustKnots="0" WindGustMPH="0" PressureMB="1009" PressureIN="29.77" Wx="Light Rain" Icon="showers.gif" Visibility="4SM" VisibilityKM="6.44" VisibilityMI="4" ReportEpoch="1226703600" ReportDate="2008-11-14 23:00 UTC"/>
+
+<WxShortTerm ID="GAZ045">
+<STPeriod interval="1" Epoch="1226700000" Day="Fri" Date="2008-11-14" Time="22:00" Wx="Rain Showers Likely" Icon="showers.gif" TempC="15" TempF="59" ApparentC="15" ApparentF="59" Pop="100" QPFmm="" QPFin="" DewPointC="14" DewPointF="58" RelativeHumidity="97" WindSpeedKnots="6" WindSpeedMPH="7" WindDirectionEng="S"/>
+<STPeriod interval="2" Epoch="1226710800" Day="Sat" Date="2008-11-15" Time="01:00" Wx="Mostly Cloudy With Isolated Showers" Icon="mcloudyrn.gif" TempC="14" TempF="57" ApparentC="14" ApparentF="57" Pop="100" QPFmm="" QPFin="" DewPointC="13" DewPointF="56" RelativeHumidity="97" WindSpeedKnots="8" WindSpeedMPH="9" WindDirectionEng="SW"/>
+<STPeriod interval="3" Epoch="1226721600" Day="Sat" Date="2008-11-15" Time="04:00" Wx="Mostly Cloudy With Isolated Showers" Icon="mcloudyrn.gif" TempC="13" TempF="55" ApparentC="13" ApparentF="55" Pop="100" QPFmm="" QPFin="" DewPointC="13" DewPointF="55" RelativeHumidity="100" WindSpeedKnots="8" WindSpeedMPH="9" WindDirectionEng="W"/>
+<STPeriod interval="4" Epoch="1226732400" Day="Sat" Date="2008-11-15" Time="07:00" Wx="Chance Of Rain Showers" Icon="showers.gif" TempC="12" TempF="54" ApparentC="12" ApparentF="54" Pop="100" QPFmm="" QPFin="" DewPointC="12" DewPointF="54" RelativeHumidity="100" WindSpeedKnots="10" WindSpeedMPH="12" WindDirectionEng="W"/>
+<STPeriod interval="5" Epoch="1226743200" Day="Sat" Date="2008-11-15" Time="10:00" Wx="Chance Of Rain Showers" Icon="showers.gif" TempC="13" TempF="56" ApparentC="13" ApparentF="56" Pop="40" QPFmm="" QPFin="" DewPointC="11" DewPointF="51" RelativeHumidity="83" WindSpeedKnots="10" WindSpeedMPH="12" WindDirectionEng="W"/>
+<STPeriod interval="6" Epoch="1226754000" Day="Sat" Date="2008-11-15" Time="13:00" Wx="Partly Cloudy" Icon="pcloudy.gif" TempC="14" TempF="57" ApparentC="14" ApparentF="57" Pop="40" QPFmm="" QPFin="" DewPointC="9" DewPointF="48" RelativeHumidity="72" WindSpeedKnots="12" WindSpeedMPH="14" WindDirectionEng="W"/>
+<STPeriod interval="7" Epoch="1226764800" Day="Sat" Date="2008-11-15" Time="16:00" Wx="Partly Cloudy" Icon="pcloudy.gif" TempC="14" TempF="57" ApparentC="14" ApparentF="57" Pop="40" QPFmm="" QPFin="" DewPointC="7" DewPointF="44" RelativeHumidity="62" WindSpeedKnots="13" WindSpeedMPH="15" WindDirectionEng="NW"/>
+<STPeriod interval="8" Epoch="1226775600" Day="Sat" Date="2008-11-15" Time="19:00" Wx="Partly Cloudy" Icon="pcloudyn.gif" TempC="9" TempF="48" ApparentC="9" ApparentF="48" Pop="40" QPFmm="" QPFin="" DewPointC="5" DewPointF="41" RelativeHumidity="76" WindSpeedKnots="13" WindSpeedMPH="15" WindDirectionEng="NW"/>
+</WxShortTerm>
+
+
+<WxForecast ID="GAZ045">
+<FPeriod interval="1" Day="FRI" Date="2008-11-14" Wx="Chance T-storms" Icon="tstorm.gif" HiF="66" HiC="19" LoF="56" LoC="13" Pop="60" Detail="Occasional showers with a chance of thunderstorms. Areas of fog. Some thunderstorms May be severe after midnight. Lows in the mid 50s. South winds 5 to 10 mph shifting to the southwest 10 to 15 mph after midnight. Chance of rain near 100 percent."/>
+<FPeriod interval="2" Day="SAT" Date="2008-11-15" Wx="Partly Cloudy With Isolated Showers" Icon="pcloudyr.gif" HiF="58" HiC="14" LoF="40" LoC="4" Pop="100" Detail="Cloudy with a chance of showers in the morning...Then partly sunny in the afternoon. Windy. Highs in the mid 50s. Northwest winds 15 to 25 mph. Chance of rain 40 percent."/>
+<FPeriod interval="3" Day="SUN" Date="2008-11-16" Wx="Mostly Sunny" Icon="pcloudy.gif" HiF="53" HiC="12" LoF="37" LoC="3" Pop="0" Detail="Sunny. Highs in the mid 50s. Northwest winds 10 to 20 mph."/>
+<FPeriod interval="4" Day="MON" Date="2008-11-17" Wx="Partly Cloudy" Icon="pcloudy.gif" HiF="56" HiC="13" LoF="34" LoC="1" Pop="0" Detail="Mostly sunny. Highs in the upper 50s."/>
+<FPeriod interval="5" Day="TUE" Date="2008-11-18" Wx="Mostly Sunny" Icon="pcloudy.gif" HiF="51" HiC="11" LoF="36" LoC="2" Pop="0" Detail="Mostly sunny. Windy. Highs in the mid 50s."/>
+<FPeriod interval="6" Day="WED" Date="2008-11-19" Wx="Mostly Sunny" Icon="pcloudy.gif" HiF="54" HiC="12" LoF="31" LoC="-1" Pop="0" Detail="Sunny. Highs in the upper 50s."/>
+<FPeriod interval="7" Day="THU" Date="2008-11-20" Wx="Partly Cloudy" Icon="pcloudy.gif" HiF="51" HiC="11" LoF="34" LoC="1" Pop="0" Detail="Mostly sunny. Highs in the mid 50s."/>
+</WxForecast>
+
+</Location>
+</WeatherFeed>
