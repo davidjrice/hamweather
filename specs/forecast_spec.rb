@@ -17,7 +17,7 @@ describe Hamweather::Forecast do
   end
   
   it "high_celsius should be 19 degrees" do
-    
+    pending
   end
 
   it "low_farenheit should be 56 degrees" do
