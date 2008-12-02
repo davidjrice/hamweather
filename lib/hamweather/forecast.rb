@@ -31,3 +31,4 @@ module Hamweather
 
   end  
 end
+
