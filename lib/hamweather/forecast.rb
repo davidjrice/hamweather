@@ -1,6 +1,6 @@
 module Hamweather
   
-  class Location
+  class Forecast
     
   end
   

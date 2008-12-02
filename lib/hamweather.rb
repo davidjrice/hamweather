@@ -1,5 +1,6 @@
 $:.unshift File.dirname(__FILE__)
 require 'lib/hamweather/location'
+require 'lib/hamweather/forecast'
 
 require 'date'
 
