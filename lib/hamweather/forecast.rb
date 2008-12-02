@@ -15,7 +15,7 @@ module Hamweather
     #detail = FPeriod/Detail
     #percentage_preciptiation = FPeriod/Pop
 
-    def new(xml_data)
+    def initialize(xml_data)
       forecast = Hpricot.parse(xml_data).root
       
       @high_farenheit = forecast[:hif]

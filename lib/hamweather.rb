@@ -3,6 +3,7 @@ require 'lib/hamweather/location'
 require 'lib/hamweather/forecast'
 
 require 'date'
+require 'hpricot'
 
 module Hamweather
   

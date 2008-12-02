@@ -13,7 +13,7 @@ describe Hamweather::Forecast do
   end
 
   it "high_farenheit should be 66 degrees" do
-    
+    @forecast.high_farenheit.should == 66
   end
   
   it "high_celsius should be 19 degrees" do
