@@ -1,5 +1,8 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
+#Hpricot.parse('<FPeriod interval="1" Day="FRI" Date="2008-11-14" Wx="Chance T-storms" Icon="tstorm.gif" HiF="66" HiC="19" LoF="56" LoC="13" Pop="60" Detail="Occasional showers with a chance of thunderstorms. Areas of fog. Some thunderstorms May be severe after midnight. Lows in the mid 50s. South winds 5 to 10 mph shifting to the southwest 10 to 15 mph after midnight. Chance of rain near 100 percent."/>').root
+#=> {emptyelem <fperiod loc="13" wx="Chance T-storms" hic="19" lof="56" icon="tstorm.gif" date="2008-11-14" hif="66" pop="60" day="FRI" interval="1" detail="Occasional showers with a chance of thunderstorms. Areas of fog. Some thunderstorms May be severe after midnight. Lows in the mid 50s. South winds 5 to 10 mph shifting to the southwest 10 to 15 mph after midnight. Chance of rain near 100 percent.">}
+
 describe Hamweather::Forecast::Daily do
   
   def test_forecast_data
@@ -36,12 +39,12 @@ describe Hamweather::Forecast::Daily do
     @daily_forecast.expected_weather.should == "Chance T-storms"
   end
   
-  it "detail should be Occasional showers with a chance of thunderstorms. Areas of fog. Some thunderstorms May be severe after midnight. Lows in the mid 50s. South winds 5 to 10 mph shifting to the southwest 10 to 15 mph after midnight. Chance of rain near 100 percent." do
-    @daily_forecast.detail.should == "Occasional showers with a chance of thunderstorms. Areas of fog. Some thunderstorms May be severe after midnight. Lows in the mid 50s. South winds 5 to 10 mph shifting to the southwest 10 to 15 mph after midnight. Chance of rain near 100 percent."
-  end
-  
   it "probability_of_preciptiation should be 60 percent" do
     @daily_forecast.probability_of_preciptiation.should == 60
+  end
+  
+  it "detail should be Occasional showers with a chance of thunderstorms. Areas of fog. Some thunderstorms May be severe after midnight. Lows in the mid 50s. South winds 5 to 10 mph shifting to the southwest 10 to 15 mph after midnight. Chance of rain near 100 percent." do
+    @daily_forecast.detail.should == "Occasional showers with a chance of thunderstorms. Areas of fog. Some thunderstorms May be severe after midnight. Lows in the mid 50s. South winds 5 to 10 mph shifting to the southwest 10 to 15 mph after midnight. Chance of rain near 100 percent."
   end
   
 end

@@ -1,5 +1,8 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
+#Hpricot.parse('<STPeriod interval="1" Epoch="1228298400" Day="Wed" Date="2008-12-03" Time="10:00" Wx="Partly Cloudy" Icon="pcloudy.gif" TempC="0" TempF="32" Pop="10" QPFmm="" QPFin="" DewPointC="-5" DewPointF="23" RelativeHumidity="70" WindSpeedKnots="8" WindSpeedMPH="9"  WindDirectionEng="SW" />').root
+#=> {emptyelem <stperiod qpfmm="" wx="Partly Cloudy" relativehumidity="70" dewpointc="-5" time="10:00" icon="pcloudy.gif" date="2008-12-03" tempc="0" qpfin="" windspeedknots="8" dewpointf="23" pop="10" day="Wed" winddirectioneng="SW" tempf="32" epoch="1228298400" interval="1" windspeedmph="9">}
+
 describe Hamweather::Forecast::Hourly do
   
   def test_forecast_data
@@ -9,7 +12,7 @@ describe Hamweather::Forecast::Hourly do
   end
   
   before(:each) do
-    @hourly_forecast = Hamweather::Forecast::Hourly.new(test_forecast_data)
+    @hourly_forecast = Hamweather::Forecast::Hourly.new(Hpricot.parse(test_forecast_data))
   end
   
   it "date should be 3rd December 2008" do

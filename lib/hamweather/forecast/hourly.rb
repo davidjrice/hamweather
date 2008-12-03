@@ -3,10 +3,10 @@ module Hamweather
     #hourly_forecast = Hpricot.parse('<STPeriod interval="1" Epoch="1228298400" Day="Wed" Date="2008-12-03" Time="10:00" Wx="Partly Cloudy" Icon="pcloudy.gif" TempC="0" TempF="32" Pop="10" QPFmm="" QPFin="" DewPointC="-5" DewPointF="23" RelativeHumidity="70" WindSpeedKnots="8" WindSpeedMPH="9"  WindDirectionEng="SW" />').root
     attr_accessor :date, :time, :expected_weather, :temp_celsius, :temp_farenheit, :probability_of_precipitation, :precipitation_millimeters, :precipitation_inches, :dew_point_celsius, :dew_point_farenheit, :relative_humidity, :wind_speed_knots, :wind_speed_mph, :wind_direction
 
-    def initialize(xml_data)
-      hourly_forecast = Hpricot.parse(xml_data).root
-      
-      #@day = hourly_forecast[:day]
+    # def initialize(xml_data)
+    #   hourly_forecast = Hpricot.parse(xml_data).root
+
+    def initialize(hourly_forecast)
       @date = Date.parse(hourly_forecast[:date])
       @time = hourly_forecast[:time]
       @expected_weather = hourly_forecast[:wx]
