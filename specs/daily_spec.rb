@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
-describe Hamweather::Forecast do
+describe Hamweather::Forecast::Daily do
   
   def test_forecast_data
     <<-XML
@@ -9,43 +9,43 @@ describe Hamweather::Forecast do
   end
   
   before(:each) do
-    @forecast = Hamweather::Forecast.new(test_forecast_data)
+    @daily_forecast = Hamweather::Forecast::Daily.new(test_forecast_data)
   end
 
   it "high_farenheit should be 66 degrees" do
-    @forecast.high_farenheit.should == 66
+    @daily_forecast.high_farenheit.should == 66
   end
   
   it "high_celsius should be 19 degrees" do
-    @forecast.high_celsius.should == 19
+    @daily_forecast.high_celsius.should == 19
   end
 
   it "low_farenheit should be 56 degrees" do
-    @forecast.low_farenheit.should == 56
+    @daily_forecast.low_farenheit.should == 56
   end
   
   it "low_celsius should be 13 degrees" do
-    @forecast.low_celsius.should == 13
+    @daily_forecast.low_celsius.should == 13
   end
   
   it "day should be friday" do
-    @forecast.day.should == "Friday"
+    @daily_forecast.day.should == "Friday"
   end
   
   it "date should be the 14th of November 2008" do
-    @forecast.date.should == Date.new("2008-11-14")
+    @daily_forecast.date.should == Date.new("2008-11-14")
   end
   
   it "expected_weather should be Chance T-storms" do
-    @forecast.expected_weather.should == "Chance T-storms"
+    @daily_forecast.expected_weather.should == "Chance T-storms"
   end
   
   it "detail should be Occasional showers with a chance of thunderstorms. Areas of fog. Some thunderstorms May be severe after midnight. Lows in the mid 50s. South winds 5 to 10 mph shifting to the southwest 10 to 15 mph after midnight. Chance of rain near 100 percent." do
-    @forecast.detail.should == "Occasional showers with a chance of thunderstorms. Areas of fog. Some thunderstorms May be severe after midnight. Lows in the mid 50s. South winds 5 to 10 mph shifting to the southwest 10 to 15 mph after midnight. Chance of rain near 100 percent."
+    @daily_forecast.detail.should == "Occasional showers with a chance of thunderstorms. Areas of fog. Some thunderstorms May be severe after midnight. Lows in the mid 50s. South winds 5 to 10 mph shifting to the southwest 10 to 15 mph after midnight. Chance of rain near 100 percent."
   end
   
   it "probability_of_preciptiation should be 60 percent" do
-    @forecast.probability_of_preciptiation.should == 60
+    @daily_forecast.probability_of_preciptiation.should == 60
   end
   
 end
