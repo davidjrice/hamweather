@@ -28,10 +28,6 @@ describe Hamweather::Forecast::Daily do
     @daily_forecast.low_celsius.should == 13
   end
   
-  it "day should be friday" do
-    @daily_forecast.day.should == "FRI"
-  end
-  
   it "date should be the 14th of November 2008" do
     @daily_forecast.date.should == Date.parse("2008-11-14")
   end

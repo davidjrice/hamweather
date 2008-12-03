@@ -32,8 +32,8 @@ describe Hamweather::Forecast::Hourly do
     @hourly_forecast.temp_celsius.should == 0
   end
   
-  it "probability_of_preciptiation should be 10" do 
-    @hourly_forecast.probability_of_preciptiation.should == 10
+  it "probability_of_precipitation should be 10" do 
+    @hourly_forecast.probability_of_precipitation.should == 10
   end
   
   it "precipitation_millimeters should be " do 
