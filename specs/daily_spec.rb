@@ -29,19 +29,11 @@ describe Hamweather::Forecast::Daily do
   end
   
   it "day should be friday" do
-<<<<<<< HEAD:specs/forecast_spec.rb
-    @forecast.day.should == "FRI"
-=======
-    @daily_forecast.day.should == "Friday"
->>>>>>> e33d23e0ae002a8882daeec5a326e53b60e3abfd:specs/daily_spec.rb
+    @daily_forecast.day.should == "FRI"
   end
   
   it "date should be the 14th of November 2008" do
-<<<<<<< HEAD:specs/forecast_spec.rb
-    @forecast.date.should == Date.parse("2008-11-14")
-=======
-    @daily_forecast.date.should == Date.new("2008-11-14")
->>>>>>> e33d23e0ae002a8882daeec5a326e53b60e3abfd:specs/daily_spec.rb
+    @daily_forecast.date.should == Date.parse("2008-11-14")
   end
   
   it "expected_weather should be Chance T-storms" do
