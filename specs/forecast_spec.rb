@@ -29,11 +29,11 @@ describe Hamweather::Forecast do
   end
   
   it "day should be friday" do
-    @forecast.day.should == "Friday"
+    @forecast.day.should == "FRI"
   end
   
   it "date should be the 14th of November 2008" do
-    @forecast.date.should == Date.new("2008-11-14")
+    @forecast.date.should == Date.parse("2008-11-14")
   end
   
   it "expected_weather should be Chance T-storms" do
