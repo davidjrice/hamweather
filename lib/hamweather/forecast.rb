@@ -32,12 +32,16 @@ module Hamweather
       #         <FPeriod interval="7" Day="TUE" Date="2008-12-09" Wx="Chance Light Snow" Icon="snow.gif"  HiF="30" HiC="-1" LoF="16" LoC="-9" Pop="30"  />
       #       </WxForecast>
       data = Hpricot.parse(xml_data)
-      dailies = data.at(:wxforecast).children      
-      # create hash here?
-      # iterate over each child of WxForecast
-      # label is what? string yyyy-mm-dd date?
-      # points to new Daily object
-      hourlies = Hpricot.parse(xml_data).
+      
+      dailies, hourlies = {}
+      
+      data.at(:wxforecast).children.each do |day| 
+        dailies[day[:date]] = Daily.new(day)
+      end
+      
+      data.at(:wxshortterm).children.each do |hour|
+        hourlies[hour[:time]] = Hourly.new(hour)
+      end
       
     end
   
