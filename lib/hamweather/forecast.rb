@@ -4,7 +4,13 @@ module Hamweather
   class Forecast    
     
     attr_accessor :high_farenheit, :high_celsius, :low_farenheit, :low_celsius, :day, :date, :expected_weather, :detail, :percentage_precipitation
-
+    
+    # @forecast.each_day 
+    # => day_proxy_object.high_farenheit
+    # @forecast.each_hour
+    # => hour_proxy_object.high_farenheit
+    
+    
     #high_farenheit = FPeriod/HiF
     #high_celsius = FPeriod/HiC
     #low_farenheit = FPeriod/LoF
