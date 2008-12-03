@@ -1,10 +1,12 @@
 $:.unshift File.dirname(__FILE__)
 require 'lib/hamweather/location'
 require 'lib/hamweather/forecast'
-
+require 'lib/hamweather/forecast/daily'
+require 'lib/hamweather/forecast/hourly'
+ 
 require 'date'
 require 'hpricot'
-
+ 
 module Hamweather
   
   class ApiKeyException < StandardError; end
