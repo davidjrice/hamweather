@@ -3,7 +3,11 @@ require 'lib/hamweather/location'
 require 'lib/hamweather/forecast'
 require 'lib/hamweather/forecast/daily'
 require 'lib/hamweather/forecast/hourly'
+<<<<<<< HEAD:lib/hamweather.rb
  
+=======
+
+>>>>>>> e33d23e0ae002a8882daeec5a326e53b60e3abfd:lib/hamweather.rb
 require 'date'
 require 'hpricot'
  
