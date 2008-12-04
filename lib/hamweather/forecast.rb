@@ -33,7 +33,7 @@ module Hamweather
       #       </WxForecast>
       data = Hpricot.parse(xml_data)
       
-      dailies = hourlies = {}
+      @dailies = @hourlies = {}
       
       # Hpricot.parse('<FPeriod interval="1" Day="WED" Date="2008-12-03" Wx="Partly Cloudy" Icon="pcloudy.gif"  HiF="42" HiC="6" LoF="22" LoC="-6" Pop="0"  />').root
       #=> {emptyelem <fperiod loc="-6" wx="Partly Cloudy" hic="6" lof="22" icon="pcloudy.gif" date="2008-12-03" hif="42" pop="0" day="WED" interval="1">}
@@ -42,11 +42,11 @@ module Hamweather
       #=> {emptyelem <fperiod loc="13" wx="Chance T-storms" hic="19" lof="56" icon="tstorm.gif" date="2008-11-14" hif="66" pop="60" day="FRI" interval="1" detail="Occasional showers with a chance of thunderstorms. Areas of fog. Some thunderstorms May be sevee after midnight. Lows in the mid 50s. South winds 5 to 10 mph shifting to the southwest 10 to 15 mph after midnight. Chance of rain near 100 percent.">}
       
       data.at(:wxforecast).children.each do |day| 
-        dailies[day[:date]] = Daily.new(day)
+        @dailies[day[:date]] = Daily.new(day)
       end
       
       data.at(:wxshortterm).children.each do |hour|
-        hourlies[hour[:time]] = Hourly.new(hour)
+        @hourlies[hour[:time]] = Hourly.new(hour)
       end
       
     end
