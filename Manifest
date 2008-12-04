@@ -1,0 +1,13 @@
+lib/hamweather/forecast/daily.rb
+lib/hamweather/forecast/hourly.rb
+lib/hamweather/forecast.rb
+lib/hamweather/location.rb
+lib/hamweather.rb
+Rakefile
+sample_data.xml
+spec/daily_spec.rb
+spec/forecast_spec.rb
+spec/hamweather_spec.rb
+spec/hourly_spec.rb
+spec/spec_helper.rb
+Manifest
