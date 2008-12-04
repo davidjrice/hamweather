@@ -12,7 +12,7 @@ describe Hamweather::Forecast::Daily do
   end
   
   before(:each) do
-    @daily_forecast = Hamweather::Forecast::Daily.new(test_forecast_data)
+    @daily_forecast = Hamweather::Forecast::Daily.new(Hpricot.parse(test_forecast_data).root)
   end
 
   it "high_farenheit should be 66 degrees" do

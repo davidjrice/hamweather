@@ -12,7 +12,7 @@ describe Hamweather::Forecast::Hourly do
   end
   
   before(:each) do
-    @hourly_forecast = Hamweather::Forecast::Hourly.new(Hpricot.parse(test_forecast_data))
+    @hourly_forecast = Hamweather::Forecast::Hourly.new(Hpricot.parse(test_forecast_data).root)
   end
   
   it "date should be 3rd December 2008" do

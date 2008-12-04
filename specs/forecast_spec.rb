@@ -12,7 +12,14 @@ describe Hamweather::Forecast::Daily do
     @forecast = Hamweather::Forecast.new(test_forecast_data)
   end
   
-  #pending
-  # => test the hashes
+  it "dailies{} should not be empty" do
+    @forecast.dailies.should != {}
+  end
+  
+  it "hourlies{} should not be empty" do
+    @forecast.hourlies.should != {}
+  end
+  
+  
 
 end
