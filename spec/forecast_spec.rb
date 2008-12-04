@@ -13,11 +13,11 @@ describe Hamweather::Forecast::Daily do
   end
   
   it "dailies{} should not be empty" do
-    @forecast.dailies.should != {}
+    @forecast.dailies.empty?.should be_false
   end
   
   it "hourlies{} should not be empty" do
-    @forecast.hourlies.should != {}
+    @forecast.hourlies.empty?.should be_false
   end
   
   
