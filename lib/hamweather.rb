@@ -11,6 +11,8 @@ module Hamweather
   
   class ApiKeyException < StandardError; end
   
+  class UnknownAddressError < StandardError; end
+  
   class << self
     
     attr_accessor :api_key
