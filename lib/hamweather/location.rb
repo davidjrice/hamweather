@@ -16,8 +16,30 @@ module Hamweather
     def initialize(data)
       
     end
-    
-    def parse (data)
+
+    def self.parse(string)
+      if is_zipcode?(string) || is_postcode(string)
+        return self.new(string)
+      else 
+        # geolocate
+        addresses = get_geocodes(data)
+        # return location
+        # or array of locations
+        
+        if addresses.size > 1 then
+          # Provide options to select correct google 'address'
+          addresses.each do |a|
+            locations[a.full_address] = self.new(a.full_address)
+          end
+        elsif (addresses.size == 1)
+          lat = addresses.first.latitude
+          lon = addresses.first.longitude
+        end
+         # 0 addresses/errors will already have been picked up by Hamweather::UnknownAddressError
+      end
+    end
+      
+    def Location.parse (data)
       # is it a zipcode? then we can request the api directly
       # http://hwlite.hamweather.net/wxC1E2gT8AY7/wx/ZIPCODE.xml (US)
       if is_zipcode(data)
@@ -35,17 +57,7 @@ module Hamweather
       # README: http://github.com/greatseth/google-geo/tree/master/README.textile
       addresses = get_geocodes(data)
       
-      if addresses.size > 1 then
-        # Provide options to select correct google 'address'
-        address = address.first
-        lat = address.latitude
-        lon = address.longitude
-        options = addresses
-      elsif (addresses.size == 1) 
-        lat = addresses.first.latitude
-        lon = addresses.first.longitude
-      end
-       # 0 addresses/errors will already have been picked up by Hamweather::UnknownAddressError
+
     end
     
     def get_geocodes(test)
