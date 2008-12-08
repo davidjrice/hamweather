@@ -16,12 +16,10 @@ module Hamweather
   
   class << self
     
-    attr_accessor :api_key, :google_api_key
-    google_api_key = 'ABQIAAAAuC9Wz6AZ_BvsKClq3zThQhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRAjq1Mt9DYkVx1c-jcuAsAreOT_w'
+    attr_accessor :api_key, :google_maps_api_key
     
     def locate(place)
       check_api_key
-      check_google_api_key
     end
     
     def forecast(location, date)
@@ -31,11 +29,8 @@ module Hamweather
     protected
     
     def check_api_key
-      raise ApiKeyException unless self.api_key
-    end
-    
-    def check_google_api_key
-      raise GoogleApiKeyException unless self.google_api_key
+      raise ApiKeyException.new("you must provide a Hamweather api key.") if api_key.nil? 
+      raise ApiKeyException.new("you must provide a Google Maps api key.") if google_maps_api_key.nil?
     end
     
   end
