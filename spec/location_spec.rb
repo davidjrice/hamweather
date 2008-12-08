@@ -30,20 +30,32 @@ describe Hamweather::Location do
     
   end
   
-  describe "with an unambiguous address, '575 Burton Road, Greenwich, NY, 12834" do
+  describe "with an unambiguous address, '575 Burton Road, Greenwich, NY, 12834'" do
     #Returns one option
     
-    it "should return one location object"
+    before(:each) do
+      @location = Hamweather::Location.parse('575 Burton Road, Greenwich, NY, 12834')
+    end
     
+    it "should return one location object" do
+      @location.kind_of?(Hamweather::Location).should be_true
+    end
+    
+    it ".to_uri should be '/wx/nearby.xml?lat=-73.504265&lon=43.0676821'"
+      @location.to_uri.should == "/wx/nearby.xml?lat=-73.504265&lon=43.0676821"
+    end
   end
   
   describe "with an ambiguous address, 'Greenwich, USA" do
-    #Returns 10 options, nb, no 'NY' in search string
+    #Returns circa 10 options, nb, no 'NY' or 'CT' in search string
     before(:each) do
-      @location = Hamweather::Location.parse("Greenwich, USA")
+      @location = Hamweather::Location.parse('Greenwich, USA')
     end
     
-    it "should return an array of location objects"
+    it "should return an array of location objects" do
+      @location.kind_of?(Array).should be_true
+      @location.should_not be_empty
+    end
     
   end
   

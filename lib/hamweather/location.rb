@@ -46,25 +46,24 @@ module Hamweather
         addresses = geocode(string)
         # TODO iterate through address objects and create location objects. may need to give a location object more attributes
         locations = []
-        # if addresses.size > 1 then
-        #   # Provide options to select correct google 'address'
-        #   addresses.each do |a|
-        #     locations[a.full_address] = self.new(a.full_address)
-        #   end
-        # elsif (addresses.size == 1)
-        #   lat = addresses.first.latitude
-        #   lon = addresses.first.longitude
-        # end
+        if addresses.size > 1 then
+          # Provide options to select correct google 'address'
+          addresses.each do |a|
+            locations << self.new(a.full_address)
+          end
+        elsif (addresses.size == 1)
+          lat = addresses.first.latitude
+          lon = addresses.first.longitude
+        end
         return nil if locations.empty?
         return locations.first if locations.size == 1
         return locations
       end
     end
     
-    # TODO: extract google maps api key to config variable. (Hamweather.google_maps_api_key = '...')
     def self.geocode(string)
-      #this key is on my (djlowry@gmail.com) google api account, change it before production
-      geo = Google::Geo.new Hamweather.google_api_key
+      #geo = Google::Geo.new Hamweather.google_maps_api_key
+      geo = Google::Geo.new "ABQIAAAAuC9Wz6AZ_BvsKClq3zThQhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRAjq1Mt9DYkVx1c-jcuAsAreOT_w"
       
       begin
       addresses = geo.locate string
