@@ -64,7 +64,7 @@ module Hamweather
     # TODO: extract google maps api key to config variable. (Hamweather.google_maps_api_key = '...')
     def self.geocode(string)
       #this key is on my (djlowry@gmail.com) google api account, change it before production
-      geo = Google::Geo.new "ABQIAAAAuC9Wz6AZ_BvsKClq3zThQhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRAjq1Mt9DYkVx1c-jcuAsAreOT_w"
+      geo = Google::Geo.new Hamweather.google_api_key
       
       begin
       addresses = geo.locate string
