@@ -41,7 +41,7 @@ describe Hamweather::Location do
       @location.kind_of?(Hamweather::Location).should be_true
     end
     
-    it ".to_uri should be '/wx/nearby.xml?lat=-73.504265&lon=43.0676821'"
+    it ".to_uri should be '/wx/nearby.xml?lat=-73.504265&lon=43.0676821'" do
       @location.to_uri.should == "/wx/nearby.xml?lat=-73.504265&lon=43.0676821"
     end
   end
@@ -56,8 +56,5 @@ describe Hamweather::Location do
       @location.kind_of?(Array).should be_true
       @location.should_not be_empty
     end
-    
   end
-  
-  
 end

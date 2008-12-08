@@ -46,12 +46,13 @@ module Hamweather
         addresses = geocode(string)
         # TODO iterate through address objects and create location objects. may need to give a location object more attributes
         locations = []
-        if addresses.size > 1 then
+        if addresses.size >= 1 then
           # Provide options to select correct google 'address'
           addresses.each do |a|
             locations << self.new(a.full_address)
           end
-        elsif (addresses.size == 1)
+        end
+        if addresses.size == 1 then
           lat = addresses.first.latitude
           lon = addresses.first.longitude
         end
@@ -60,7 +61,7 @@ module Hamweather
         return locations
       end
     end
-    
+     
     def self.geocode(string)
       #geo = Google::Geo.new Hamweather.google_maps_api_key
       geo = Google::Geo.new "ABQIAAAAuC9Wz6AZ_BvsKClq3zThQhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRAjq1Mt9DYkVx1c-jcuAsAreOT_w"
@@ -76,7 +77,7 @@ module Hamweather
 
     def self.is_zipcode?(string)
       #Address: ZIP code (US)
-      zip_codes_regex = /\b[0-9]{5}(?:-[0-9]{4})?\b/
+      zip_codes_regex = /(^[0-9]{5}$)|(^[0-9]{5}-[0-9]{4}$)/      
       return string =~ zip_codes_regex
     end
 
