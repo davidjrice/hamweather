@@ -17,9 +17,9 @@ module Hamweather
     
     def to_uri
       if zipcode? || postcode?
-        @uri ||= "/wx/#{string}.xml"
+        @uri ||= "wx/#{string}.xml"
       elsif geocode?
-        @uri ||= "/wx/nearby.xml?lat=#{lat}&lon=#{lon}"
+        @uri ||= "wx/nearby.xml?lat=#{lat}&lon=#{lon}"
       end
     end
     
@@ -63,7 +63,6 @@ module Hamweather
     end
     
     def self.call_geocoder(string)
-      #TODO geo = Google::Geo.new 
       geo = Google::Geo.new Hamweather.google_maps_api_key
       
       begin

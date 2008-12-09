@@ -24,10 +24,12 @@ module Hamweather
 
     def locate(place)
       check_api_key
+      @location = Hamweather::Location.parse(place)
     end
     
-    def forecast(location, date)
+    def forecast(location)
       check_api_key
+      Hamweather::Forecast.new(location)
     end
     
     protected

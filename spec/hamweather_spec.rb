@@ -12,6 +12,8 @@ describe Hamweather do
       lambda { Hamweather.forecast(mock(Hamweather::Location), Date.today) }.should raise_error(Hamweather::ApiKeyException)
     end
     
+    
+    
   end
   
 end

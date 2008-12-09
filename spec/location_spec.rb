@@ -14,8 +14,8 @@ describe Hamweather::Location do
       @location = Hamweather::Location.parse("12834")
     end
     
-    it ".to_uri should be '/wx/12834.xml'" do
-      @location.to_uri.should == "/wx/12834.xml"
+    it ".to_uri should be 'wx/12834.xml'" do
+      @location.to_uri.should == "wx/12834.xml"
     end
     
   end
@@ -28,8 +28,8 @@ describe Hamweather::Location do
       @location = Hamweather::Location.parse("H0H0H0")
     end
     
-    it ".to_uri should be '/wx/H0H0H0.xml'" do
-      @location.to_uri.should == "/wx/H0H0H0.xml"
+    it ".to_uri should be 'wx/H0H0H0.xml'" do
+      @location.to_uri.should == "wx/H0H0H0.xml"
     end
     
   end
@@ -48,8 +48,8 @@ describe Hamweather::Location do
       @location.kind_of?(Hamweather::Location).should be_true
     end
     
-    it ".to_uri should be '/wx/nearby.xml?lat=-73.504265&lon=43.0676821'" do
-      @location.to_uri.should == "/wx/nearby.xml?lat=43.0676821&lon=-73.504265"
+    it ".to_uri should be 'wx/nearby.xml?lat=-73.504265&lon=43.0676821'" do
+      @location.to_uri.should == "wx/nearby.xml?lat=43.0676821&lon=-73.504265"
     end
   end
   

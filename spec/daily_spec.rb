@@ -47,6 +47,9 @@ describe Hamweather::Forecast::Daily do
     @daily_forecast.detail.should == "Occasional showers with a chance of thunderstorms. Areas of fog. Some thunderstorms May be severe after midnight. Lows in the mid 50s. South winds 5 to 10 mph shifting to the southwest 10 to 15 mph after midnight. Chance of rain near 100 percent."
   end
   
+  it "@hours should contain only hours belonging to 'today'" do
+    pending
+  end
 end
 
 
