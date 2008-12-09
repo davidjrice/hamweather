@@ -2,6 +2,10 @@ require File.dirname(__FILE__) + '/spec_helper'
 
 describe Hamweather::Location do
   
+  before(:each) do 
+    setup_google_api_config
+  end
+  
   describe "with zipcode 12834" do
     
     # should be a valid zipcode (Greenwich, NY, USA)
@@ -38,11 +42,14 @@ describe Hamweather::Location do
     end
     
     it "should return one location object" do
+      #Google::Geo.should_receive(:new).with('thisapikey').and_return(mock(Google::Geo))
+      #so if you are using should_receive i'd put it in the actual it block of the spec
+      #so you should create the mock object first, set an expectation that ".locate" is called on it... then set the expectation that it's instantiated too!
       @location.kind_of?(Hamweather::Location).should be_true
     end
     
     it ".to_uri should be '/wx/nearby.xml?lat=-73.504265&lon=43.0676821'" do
-      @location.to_uri.should == "/wx/nearby.xml?lat=-73.504265&lon=43.0676821"
+      @location.to_uri.should == "/wx/nearby.xml?lat=43.0676821&lon=-73.504265"
     end
   end
   

@@ -5,12 +5,20 @@ module Hamweather
   
   class Location
     
-    attr_reader :string, :lat, :lon
+    attr_reader :string, :address
+    
+    def lat
+      @address.latitude
+    end
+    
+    def lon
+      @address.longitude
+    end
     
     def to_uri
       if zipcode? || postcode?
         @uri ||= "/wx/#{string}.xml"
-      elsif geocode? 
+      elsif geocode?
         @uri ||= "/wx/nearby.xml?lat=#{lat}&lon=#{lon}"
       end
     end
@@ -27,48 +35,39 @@ module Hamweather
       @kind == :geocode
     end
     
-    def initialize(string)
-      @string = string
-      if self.class.is_zipcode?(string)
-        @kind = :zipcode
-      elsif self.class.is_canadian_postcode?(string)
-        @kind = :postcode
-      else
-        @kind = :geocode
-      end
-      
-    end
-
     def self.parse(string)
       if is_zipcode?(string) || is_canadian_postcode?(string)
         return self.new(string)
-      else # geocode
-        addresses = geocode(string)
-        # TODO iterate through address objects and create location objects. may need to give a location object more attributes
-        locations = []
-        if addresses.size >= 1 then
-          # Provide options to select correct google 'address'
-          addresses.each do |a|
-            locations << self.new(a.full_address)
-          end
-        end
-        if addresses.size == 1 then
-          lat = addresses.first.latitude
-          lon = addresses.first.longitude
-        end
-        return nil if locations.empty?
-        return locations.first if locations.size == 1
-        return locations
+      else
+        geocode(string)
       end
     end
-     
+
+    def initialize(object)
+      if self.class.is_zipcode?(object)
+        @string = object
+        @kind = :zipcode
+      elsif self.class.is_canadian_postcode?(object)
+        @string = object
+        @kind = :postcode
+      elsif object.kind_of?(Google::Geo::Address)
+        @address = object
+        @kind = :geocode
+      end
+    end
+
     def self.geocode(string)
-      #geo = Google::Geo.new Hamweather.google_maps_api_key
-      geo = Google::Geo.new "ABQIAAAAuC9Wz6AZ_BvsKClq3zThQhT2yXp_ZAY8_ufC3CFXhHIE1NvwkxRAjq1Mt9DYkVx1c-jcuAsAreOT_w"
+      locations = call_geocoder(string).map { |a| self.new(a) }
+      return locations.first if locations.size == 1
+      return locations
+    end
+    
+    def self.call_geocoder(string)
+      #TODO geo = Google::Geo.new 
+      geo = Google::Geo.new Hamweather.google_maps_api_key
       
       begin
-      addresses = geo.locate string
-      return addresses  # addresses is always an array
+      return geo.locate(string)
       
       rescue Google::Geo::UnknownAddressError 
         raise Hamweather::UnknownAddressError
@@ -77,7 +76,7 @@ module Hamweather
 
     def self.is_zipcode?(string)
       #Address: ZIP code (US)
-      zip_codes_regex = /(^[0-9]{5}$)|(^[0-9]{5}-[0-9]{4}$)/      
+      zip_codes_regex = /(^[0-9]{5}$)|(^[0-9]{5}-[0-9]{4}$)/
       return string =~ zip_codes_regex
     end
 

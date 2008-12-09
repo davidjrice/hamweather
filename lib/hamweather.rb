@@ -17,7 +17,11 @@ module Hamweather
   class << self
     
     attr_accessor :api_key, :google_maps_api_key
-    
+    # Hamweather.api_key = "..."
+    # Hamweather.google_maps_api_key = "..."
+    # locations = Hamweather.locate "Belfast"
+    # Hamweather.forecast(locations.first)
+
     def locate(place)
       check_api_key
     end
