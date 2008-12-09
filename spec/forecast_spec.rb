@@ -16,10 +16,20 @@ describe Hamweather::Forecast::Daily do
     @forecast.dailies.empty?.should be_false
   end
   
+  it "each_day should yield Daily objects" do
+    @forecast.each_day do |day|
+      day.class.should == Hamweather::Forecast::Daily
+    end
+  end
+  
   it "hourlies{} should not be empty" do
     @forecast.hourlies.empty?.should be_false
   end
   
-  
+  it "each_hour should yield Hourly objects" do
+    @forecast.each_hour do |hour|
+      hour.class.should == Hamweather::Forecast::Hourly
+    end
+  end
 
 end
