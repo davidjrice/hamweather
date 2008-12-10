@@ -26,4 +26,5 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--main", "README"]
   s.extra_rdoc_files = ["Manifest", "README"]
   s.add_dependency("google-geo", ["> 0.0.0"])
+  s.add_dependency("hpricot", ["> 0.0.0"])
 end
