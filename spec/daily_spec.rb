@@ -14,7 +14,19 @@ describe Hamweather::Forecast::Daily do
   before(:each) do
     @daily_forecast = Hamweather::Forecast::Daily.new(Hpricot.parse(test_forecast_data).root)
   end
-
+  
+  it "each_hour should give back a Hash of Hourly objects" do
+    @daily_forecast.each_hour do |hour|
+      hour.class.should_be Hamweather::Forecast::Hourly
+    end
+  end
+  
+  it "@hours should contain only hours belonging to 'today'" do
+    @daily_forecast.each_hour do |hour|
+      hour.date.should_be @daily_forecast.date
+    end
+  end
+  
   it "high_farenheit should be 66 degrees" do
     @daily_forecast.high_farenheit.should == 66
   end
@@ -46,10 +58,5 @@ describe Hamweather::Forecast::Daily do
   it "detail should be Occasional showers with a chance of thunderstorms. Areas of fog. Some thunderstorms May be severe after midnight. Lows in the mid 50s. South winds 5 to 10 mph shifting to the southwest 10 to 15 mph after midnight. Chance of rain near 100 percent." do
     @daily_forecast.detail.should == "Occasional showers with a chance of thunderstorms. Areas of fog. Some thunderstorms May be severe after midnight. Lows in the mid 50s. South winds 5 to 10 mph shifting to the southwest 10 to 15 mph after midnight. Chance of rain near 100 percent."
   end
-  
-  it "@hours should contain only hours belonging to 'today'" do
-    pending
-  end
 end
-
 
