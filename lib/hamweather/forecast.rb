@@ -37,7 +37,7 @@ module Hamweather
     def self.fetch(location_uri)
       Net::HTTP.get URI.parse("http://hwlite.hamweather.net/#{Hamweather.api_key}/#{location_uri}")
     end
-    
+
     def each_day
       @dailies.each_pair do |key, value|
         yield value
@@ -50,6 +50,5 @@ module Hamweather
       end
     end
     
-  
   end
 end

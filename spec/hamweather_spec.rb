@@ -9,7 +9,7 @@ describe Hamweather do
     end
   
     it "should raise an ApiKeyException" do
-      lambda { Hamweather.forecast(mock(Hamweather::Location), Date.today) }.should raise_error(Hamweather::ApiKeyException)
+      lambda { Hamweather.forecast(mock(Hamweather::Location)) }.should raise_error(Hamweather::ApiKeyException)
     end
     
     
