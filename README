@@ -9,7 +9,7 @@ It can handle diverse locations by Zip Code, Canadian Post code or by any intern
 
 Installation
 ------------
-> sudo gem install hamweather
+> sudo gem install davidjrice-hamweather
 
 Usage
 -----
