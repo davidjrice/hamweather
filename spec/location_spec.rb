@@ -64,4 +64,14 @@ describe Hamweather::Location do
       @location.should_not be_empty
     end
   end
+  
+  describe "with an unlocatable address" do
+
+    it "should raise a Hamweather::UnknownAddressError" do
+      
+      lambda { Hamweather::Location.parse('') }.should raise_error(Hamweather::UnknownAddressError)
+      
+    end
+    
+  end
 end

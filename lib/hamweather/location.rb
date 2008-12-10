@@ -68,7 +68,7 @@ module Hamweather
       begin
       return geo.locate(string)
       
-      rescue Google::Geo::UnknownAddressError 
+      rescue Google::Geo::UnknownAddressError, Google::Geo::UnknownError
         raise Hamweather::UnknownAddressError
       end
     end
