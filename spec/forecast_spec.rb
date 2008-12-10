@@ -31,6 +31,14 @@ describe Hamweather::Forecast::Daily do
     end
   end
   
+  it "each_hour should give back a Hash of Hourly objects" do
+    @forecast.each_day do |day|
+      day.each_hour do |hour|
+        hour.class.should == Hamweather::Forecast::Hourly
+      end
+    end
+  end
+  
   it "hourlies{} should not be empty" do
     @forecast.hourlies.empty?.should be_false
   end

@@ -15,12 +15,6 @@ describe Hamweather::Forecast::Daily do
     @daily_forecast = Hamweather::Forecast::Daily.new(Hpricot.parse(test_forecast_data).root)
   end
   
-  it "each_hour should give back a Hash of Hourly objects" do
-    @daily_forecast.each_hour do |hour|
-      hour.class.should_be Hamweather::Forecast::Hourly
-    end
-  end
-  
   it "@hours should contain only hours belonging to 'today'" do
     @daily_forecast.each_hour do |hour|
       hour.date.should_be @daily_forecast.date
