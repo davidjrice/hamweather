@@ -1,0 +1,73 @@
+Hamweather
+==========
+
+This is a Ruby API to an XML webservice providing weather detail for global locations.
+It can handle diverse locations by Zip Code, Canadian Post code or by any international address.
+
+* It requires a Google Maps API key: http://code.google.com/apis/maps/signup.html
+* It requires a Hamweather API key, contact Hamweather to discuss: http://www.hamweather.com/
+
+Installation
+------------
+> sudo gem install hamweather
+
+Usage
+-----
+require 'rubygems'
+require 'hamweather'
+
+*** Hamweather is a singleton class, it takes the two API keys as such:
+Hamweather.google_maps_api_key = " ... "
+Hamweather.api_key = " ... "
+
+@location = Hamweather.locate('Belfast')    # Assuming your location is unambiguous:
+@forecast = Hamweather.forecast(@location)  # Forecast is returned as a Hamweather::Forecast object
+
+What 'address' to use?
+----------------------
+Zip Code, Canadian Postcode, International Address - it doesn't really matter.
+This API uses the Google Maps API to geolocate any address which doesn't fit either of the former
+precisely.
+Which means the user could input "Lodnon" and get the right location as it's parsing is intelligent.
+
+Using Hamweather::Location
+--------------------------
+If the 'address' you enter is ambiguous, the API may return a hash of Location objects which you can
+use to choose. Check this by: @location.kind_of?(Hash)
+Otherwise @location.zipcode @location.postcode? @location.geocode? will tell you what type of
+Location you have.
+
+Using Hamweather::Forecast
+--------------------------
+Assuming @location has been defined, @forecast = Hamweather.forecast(@location) will return a 
+Hamweather::Forecast object. A Forecast object has two available hashes: dailies{} and hourlies{}
+which give all available Daily forecasts and Hourly forecasts respectively. Each Daily or Hourly
+forecast is a Hash of Hamweather::Forecast::Daily or Hamweather::Forecast::Hourly objects.
+
+The Daily object has a list of it's Hourly Forecasts available to you: 'hours'
+Forecast variables available in a Daily forecast are:
+  :high_farenheit
+  :high_celsius
+  :low_farenheit
+  :low_celsius
+  :day
+  :date
+  :expected_weather
+  :detail
+  :probability_of_preciptiation
+
+Forecast variables available in an Hourly forecast are:
+  :date
+  :time
+  :expected_weather
+  :temp_celsius
+  :temp_farenheit
+  :probability_of_precipitation
+  :precipitation_millimeters
+  :precipitation_inches
+  :dew_point_celsius
+  :dew_point_farenheit
+  :relative_humidity
+  :wind_speed_knots
+  :wind_speed_mph
+  :wind_direction
